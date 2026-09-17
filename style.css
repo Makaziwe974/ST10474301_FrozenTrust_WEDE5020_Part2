@@ -1,0 +1,620 @@
+/* FROZEN TRUST - PART 2 CSS*/
+
+
+/* GENERAL */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+    color: #222222;
+
+    background-color: #ffffff;
+}
+
+body {
+    position:relative;
+    background-color:#ffffff;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    top:50%;
+    left:50%;
+    width:500px;
+    height:500px;
+    background-image:url("images/frozen-deal.png");
+    background-repeat:no-repeat;
+    background-position:center;
+    opacity:0.08;
+    transform:translate(-50%,-50%);
+    z-index:-1;
+    pointer-events:none;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/*HEADER */
+
+header {
+    background-color: #073b7a;
+
+    color: white;
+
+    padding: 15px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    flex-wrap: wrap;
+}
+
+
+.logo-area {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.logo {
+    width: 75px;
+
+    height: 75px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid white;
+}
+
+
+.logo-area h1 {
+    font-size: 26px;
+
+    margin-bottom: 2px;
+}
+
+
+.logo-area p {
+    font-size: 14px;
+}
+
+
+/*NAVIGATION */
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    padding: 8px;
+}
+
+
+nav a:hover {
+    color: #87ceeb;
+
+    text-decoration: underline;
+}
+
+
+/*HERO */
+
+.hero {
+    min-height: 520px;
+
+    padding: 80px 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    color: white;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0, 40, 90, 0.65),
+            rgba(0, 40, 90, 0.65)
+        ),
+
+        url("images/frozen-trust-logo.png");
+
+    background-size: cover;
+
+    background-position: center;
+}
+
+
+.hero-content {
+    max-width: 700px;
+}
+
+
+.hero h2 {
+    font-size: 50px;
+
+    margin-bottom: 20px;
+}
+
+
+.hero p {
+    font-size: 20px;
+
+    margin-bottom: 30px;
+}
+
+
+/* BUTTONS */
+
+.button {
+    display: inline-block;
+
+    background-color: #87ceeb;
+
+    color: #062d63;
+
+    padding: 12px 25px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+.button:hover {
+    background-color: white;
+
+    color: #073b7a;
+}
+
+
+/* SECTIONS */
+
+.section {
+    padding: 60px 7%;
+
+    text-align: center;
+}
+
+
+.section h2 {
+    color: #073b7a;
+
+    font-size: 34px;
+
+    margin-bottom: 25px;
+}
+
+
+.section p {
+    max-width: 850px;
+
+    margin: 0 auto 15px;
+}
+
+
+.light-section {
+    background-color: #eef8fc;
+}
+
+
+/* DEAL SECTION */
+
+.deal {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    padding: 60px 7%;
+
+    background-color: #e6f7fc;
+}
+
+
+.deal-image {
+    flex: 1;
+
+    text-align: center;
+}
+
+
+.deal-image img {
+    width: 100%;
+
+    max-width: 500px;
+
+    border-radius: 12px;
+}
+
+
+.deal-content {
+    flex: 1;
+
+    max-width: 500px;
+}
+
+
+.deal-content h2 {
+    color: #073b7a;
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+
+.deal-content p {
+    margin-bottom: 25px;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+
+.card {
+    width: 300px;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+
+.card img {
+    width: 100%;
+
+    height: 200px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    margin-bottom: 15px;
+}
+
+
+.card h3 {
+    color: #073b7a;
+
+    margin-bottom: 10px;
+}
+
+
+.price {
+    color: #073b7a;
+
+    font-size: 20px;
+
+    font-weight: bold;
+}
+
+
+/* CTA */
+
+.cta {
+    text-align: center;
+
+    padding: 60px 7%;
+
+    background-color: #d9f2fb;
+}
+
+
+.cta h2 {
+    color: #073b7a;
+
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+
+.cta p {
+    margin-bottom: 25px;
+}
+
+
+/*ABOUT LIST */
+
+.about-list {
+    max-width: 600px;
+
+    margin: 25px auto;
+
+    text-align: left;
+}
+
+
+.about-list li {
+    margin-bottom: 10px;
+}
+
+
+/* IMAGE SECTION*/
+
+.image-section {
+    padding: 50px 7%;
+
+    text-align: center;
+
+    background-color: #eef8fc;
+}
+
+
+.image-section img {
+    width: 70%;
+
+    max-width: 650px;
+
+    border-radius: 12px;
+}
+
+
+/*FORM */
+
+form {
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    background-color: #eef8fc;
+
+    border-radius: 12px;
+
+    text-align: left;
+}
+
+
+form label {
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 5px;
+
+    color: #073b7a;
+
+    font-weight: bold;
+}
+
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #bbbbbb;
+
+    border-radius: 6px;
+
+    font-family: Arial, sans-serif;
+}
+
+
+form textarea {
+    height: 140px;
+
+    resize: vertical;
+}
+
+
+form button {
+    margin-top: 20px;
+}
+
+
+/* CONTACT */
+
+.contact-details {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    margin-top: 35px;
+}
+
+
+.contact-card {
+    width: 280px;
+
+    padding: 25px;
+
+    background-color: #eef8fc;
+
+    border-radius: 10px;
+}
+
+
+.contact-card h3 {
+    color: #073b7a;
+
+    margin-bottom: 10px;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: #062d63;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+}
+
+
+/* RESPONSIVENESS Less than 960px */
+
+@media screen and (max-width: 960px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+
+    nav ul {
+        justify-content: center;
+    }
+
+
+    .hero {
+        text-align: center;
+
+        min-height: 450px;
+
+        padding: 60px 5%;
+    }
+
+
+    .hero h2 {
+        font-size: 40px;
+    }
+
+
+    .deal {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+
+    .deal-content {
+        max-width: 700px;
+    }
+
+
+    .image-section img {
+        width: 90%;
+    }
+
+
+    .card {
+        width: 45%;
+    }
+
+}
+
+
+/* SMALL MOBILE DEVICES */
+
+@media screen and (max-width: 600px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+
+    nav ul {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 8px;
+    }
+
+
+    .hero {
+        min-height: 420px;
+
+        padding: 50px 5%;
+    }
+
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+
+    .hero p {
+        font-size: 16px;
+    }
+
+
+    .card {
+        width: 100%;
+    }
+
+
+    .image-section img {
+        width: 100%;
+    }
+
+
+    .section {
+        padding: 45px 5%;
+    }
+
+}
