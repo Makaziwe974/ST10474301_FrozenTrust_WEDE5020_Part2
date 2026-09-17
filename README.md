@@ -338,6 +338,20 @@ Refined website objectives
 
 Adjusted navigation pages
 
+## Part 2- CSS and Visual Design
+
+-Created styel.css
+
+-Linked the stylesheet to all webpages.
+
+-Improved the website header and navigation.
+
+-Added responsive CSS.
+
+-Added media query for screens below 960px.
+
+
+
 
 
 ## Planned
