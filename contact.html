@@ -121,6 +121,39 @@
 
     </section>
 
+    <section class="section light-section">
+  <h2>Send a General Message</h2>
+  <p>Complete the form below to contact Frozen Trust.</p>
+        
+  <form id="contactForm">
+    <label for="contactName">Full Name *</label>
+    <input type="text" id="contactName" name="name" autocomplete="name" required minlength="2">
+
+    <label for="contactEmail">Email Address *</label>
+    <input type="email" id="contactEmail" name="email" autocomplete="email" required>
+
+    <label for="contactPhone">Phone Number</label>
+    <input type="tel" id="contactPhone" name="phone" autocomplete="tel" placeholder="e.g. 081 555 2338">
+
+    <label for="messageType">Type of Message *</label>
+    <select id="messageType" name="messageType" required>
+      <option value="">Choose a message type</option>
+      <option value="General question">General question</option>
+      <option value="Ice order">Ice order</option>
+      <option value="Bulk order">Bulk order</option>
+      <option value="Freezer hire">Freezer hire</option>
+      <option value="Delivery enquiry">Delivery enquiry</option>
+    </select>
+
+    <label for="contactMessage">Message *</label>
+    <textarea id="contactMessage" name="message" rows="6" required minlength="10" placeholder="Write your message here"></textarea>
+
+    <button type="submit" class="button">Prepare Email</button>
+    <p id="contactStatus" class="part3-status" role="status" aria-live="polite"></p>
+  </form>
+        
+</section>
+
 </main>
 
 
