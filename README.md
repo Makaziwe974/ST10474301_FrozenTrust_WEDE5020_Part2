@@ -308,7 +308,17 @@ Large buttons for contact via WhatsApp and other online platforms.
 | 17/09/2026 | v1.4 | Added the stylesheet link to each HTML pages |
 | 17/09/2026 | v1.5 | Added the images folder |
 | 17/09/2026 | v1.6 | Added responsive desktop styling |
+
+| 27/10/2026 |Added script.js to implement interactive features for the existing Frozen Trust website, including product search, image lightbox, form validation, enquiry price estimates and dynamic footer year.
+- Added search input to products.html to filter the existing product cards without changing the original product page structure.
+- Enhanced the existing enquiry.html form with required-field and email validation, quantity input and an indicative ice cost estimate based on the prices already shown in Part 2.
+- Added a general contact form to contact.html, including contact details, message type, message validation and a prepared email draft to the business email address.
+- Added robots.txt and `sitemap.xml templates to support search engine crawling. Replace the placeholder URLs with the final published GitHub Pages URL before submission.
+- Added SEO/accessibility guidance and responsive image/lightbox CSS. Existing page titles, meta descriptions, internal links and meaningful image alt text should be checked on every page.
+- Testing evidence to add after actual testing: desktop/tablet/mobile screenshots; product search; lightbox; invalid/valid form entries; price estimator; and the published website URL.
 | | | * Add new rows as the project progresses* |
+
+
 
 ---
 
