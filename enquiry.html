@@ -140,6 +140,14 @@
 
             </select>
 
+            <label for="quantity">Quantity (number of ice bags)</label>
+            <input type="number" id="quantity" name="quantity" min="1" 
+            step="1" placeholder="Enter number of bags"> 
+            <p id="priceEstimate" class="part3-status" aria-live="polite">
+            Choose an ice product and enter a quantity to see an estimate.</p>
+            <p class="part3-small-note">Estimate only. Please confirm current prices,
+            availability and delivery with Frozen Trust.</p>
+
 
             <label for="message">
                 Message
@@ -156,6 +164,9 @@
                 Submit Enquiry
 
             </button>
+
+            <p id="enquiryStatus" class="part3-status"
+                role="status" aria-live="polite"></p>
 
         </form>
 
