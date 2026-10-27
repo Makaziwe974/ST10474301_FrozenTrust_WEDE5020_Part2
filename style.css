@@ -618,3 +618,71 @@ footer {
     }
 
 }
+/* Part 3: search field */
+.part3-search {
+    display: block;
+    
+    width: min(100%, 600px);
+    
+    margin: 18px auto 10px;
+    padding: 12px;
+    border: 1px solid #aebfcb;
+    border-radius: 6px;
+    font: inherit;
+}
+
+/* Part 3: form status messages */
+.part3-status {
+    margin: 12px auto;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+.ft-error { color: #a12222; }
+
+.ft-success { color: #176b3a; }
+
+.part3-small-note { font-size: .9rem; color: #526579; }
+
+/* Part 3: image lightbox */
+.ft-lightbox {
+    width: min(92vw, 900px);
+    max-width: 92vw;
+    max-height: 90vh;
+    margin: auto;
+    padding: 22px;
+    border: 0;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 15px 50px rgba(0,0,0,.35);
+}
+.ft-lightbox::backdrop { background: rgba(0, 20, 45, .82); }
+.ft-lightbox-image {
+    display: block;
+    max-width: 100%;
+    max-height: 72vh;
+    margin: 0 auto;
+    object-fit: contain;
+}
+.ft-lightbox-caption { text-align: center; margin-top: 10px; color: #073b7a; }
+.ft-lightbox-close {
+    display: block;
+    margin: 0 0 10px auto;
+    padding: 4px 12px;
+    border: 0;
+    border-radius: 5px;
+    background: #073b7a;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Part 3: subtle card entrance animation */
+.ft-card-reveal { animation: ftFadeUp .55s ease both; }
+@keyframes ftFadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .ft-card-reveal { animation: none; }
+}
