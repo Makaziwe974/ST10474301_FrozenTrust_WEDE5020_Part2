@@ -455,10 +455,9 @@ Graphic Design -R0 (Existing Logo)
 
  
 
-
-
 9. References 
 
 Afrihost (2026) Domain search and registration. Available at: https://www.afrihost.com/domains  (Accessed: 7 August 2026). 
 
 Frozen Trust (2026) 2026 Summer Deals promotional flyer. Internal business material supplied for the website project. 
+
