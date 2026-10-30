@@ -1,361 +1,337 @@
- 
-
-/* ===================================== 
-
-   FROZEN TRUST WEBSITE 
-
-   Main JavaScript File 
-
-   ===================================== */ 
-
- 
-
- 
-
-/* 1. RUN CODE AFTER THE PAGE LOADS */ 
-
- 
-
-Document.addEventListener(“DOMContentLoaded”, function () { 
-
- 
-
-    /* 2. MOBILE NAVIGATION MENU */ 
-
- 
-
-    Const menuToggle = document.getElementById(“menuToggle”); 
-
-    Const mainNavigation = document.getElementById(“mainNavigation”); 
-
- 
-
-    If (menuToggle && mainNavigation) { 
-
- 
-
-        menuToggle.addEventListener(“click”, function () { 
-
- 
-
-            const isOpen = mainNavigation.classList.toggle(“show”); 
-
- 
-
-            menuToggle.setAttribute(“aria-expanded”, isOpen); 
-
- 
-
-        }); 
-
- 
-
-    } 
-
- 
-
- 
-
-    /* 3. AUTOMATICALLY DISPLAY THE CURRENT YEAR */ 
-
- 
-
-    Const yearElements = document.querySelectorAll(“.current-year”); 
-
- 
-
-    yearElements.forEach(function (element) { 
-
- 
-
-        element.textContent = new Date().getFullYear(); 
-
- 
-
-    }); 
-
- 
-
- 
-
-    /* 4. READ PRODUCT OR SERVICE FROM THE URL */ 
-
- 
-
-    Const urlParameters = new URLSearchParams(window.location.search); 
-
- 
-
-    Const selectedProduct = urlParameters.get(“product”); 
-
-    Const selectedService = urlParameters.get(“service”); 
-
- 
-
-    Const enquiryType = document.getElementById(“enquiryType”); 
-
- 
-
-    If (enquiryType) { 
-
- 
-
-        If (selectedProduct === “2kg”) { 
-
-            enquiryType.value = “2kg”; 
-
-        } 
-
- 
-
-        If (selectedProduct === “3kg”) { 
-
-            enquiryType.value = “3kg”; 
-
-        } 
-
- 
-
-        If (selectedService === “freezer”) { 
-
-            enquiryType.value = “freezer”; 
-
-        } 
-
- 
-
-        If (selectedService === “delivery”) { 
-
-            enquiryType.value = “delivery”; 
-
-        } 
-
- 
-
-    } 
-
- 
-
- 
-
-    /* 5. HANDLE THE ENQUIRY FORM */ 
-
- 
-
-    Const enquiryForm = document.getElementById(“enquiryForm”); 
-
- 
 
-    If (enquiryForm) { 
-
  
 
-        enquiryForm.addEventListener(“submit”, function (event) { 
 
- 
+/* FROZEN TRUST WEBSITE - PART 3
+   JavaScript functionality */
 
-            event.preventDefault(); 
+document.addEventListener("DOMContentLoaded", function () {
 
- 
 
-            const customerName = 
+    //  AUTOMATIC FOOTER YEAR //
 
-                document.getElementById(“customerName”).value.trim(); 
+    const yearElements = document.querySelectorAll(".current-year");
 
- 
+    yearElements.forEach(function (element) {
+        element.textContent = new Date().getFullYear();
+    });
 
-            const customerEmail = 
 
-                document.getElementById(“customerEmail”).value.trim(); 
+    //  PRODUCT SEARCH //
 
- 
+    const productSearch = document.getElementById("productSearch");
 
-            const customerPhone = 
+    if (productSearch) {
+        productSearch.addEventListener("input", function () {
 
-                document.getElementById(“customerPhone”).value.trim(); 
+            const searchText = productSearch.value.toLowerCase().trim();
 
- 
+            const productCards = document.querySelectorAll(".card");
 
-            const selectedEnquiry = 
+            productCards.forEach(function (card) {
 
-                document.getElementById(“enquiryType”).value; 
+                const productText = card.textContent.toLowerCase();
 
- 
+                if (productText.includes(searchText)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
 
-            const quantity = 
+            });
 
-                document.getElementById(“quantity”).value; 
+        });
+    }
 
- 
 
-            const customerMessage = 
+    //  ENQUIRY FORM VALIDATION //
 
-                document.getElementById(“customerMessage”).value.trim(); 
+    const enquiryForm = document.getElementById("enquiryForm");
 
- 
+    if (enquiryForm) {
 
-            const formMessage = 
+        enquiryForm.addEventListener("submit", function (event) {
 
-                document.getElementById(“formMessage”); 
+            const nameField = document.getElementById("name");
+            const emailField = document.getElementById("email");
+            const phoneField = document.getElementById("phone");
+            const productField = document.getElementById("product");
+            const messageField = document.getElementById("message");
+            const formStatus = document.getElementById("formStatus");
 
- 
+            const name = nameField ? nameField.value.trim() : "";
+            const email = emailField ? emailField.value.trim() : "";
+            const phone = phoneField ? phoneField.value.trim() : "";
+            const product = productField ? productField.value.trim() : "";
+            const message = messageField ? messageField.value.trim() : "";
 
- 
+            let errorMessage = "";
 
-            /* 6. CHECK REQUIRED INFORMATION */ 
+            // Check required fields
+            if (!name || !email || !message) {
+                errorMessage =
+                    "Please complete your name, email address and message.";
+            }
 
- 
+            // Check email format
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            If ( 
+            if (!errorMessage && !emailPattern.test(email)) {
+                errorMessage =
+                    "Please enter a valid email address.";
+            }
 
-                !customerName || 
+            // Check phone number if provided
+            if (!errorMessage && phone) {
 
-                !customerEmail || 
+                const phoneDigits = phone.replace(/\D/g, "");
 
-                !selectedEnquiry || 
+                if (phoneDigits.length < 9 || phoneDigits.length > 15) {
+                    errorMessage =
+                        "Please enter a valid phone number.";
+                }
+            }
 
-                !customerMessage 
+            // Check product selection if a product field exists
+            if (!errorMessage && productField && !product) {
+                errorMessage =
+                    "Please select a product or service.";
+            }
 
-            ) { 
+            // Display validation result
+            if (errorMessage) {
 
- 
+                event.preventDefault();
 
-                formMessage.textContent = 
+                if (formStatus) {
+                    formStatus.textContent = errorMessage;
+                    formStatus.style.color = "#c62828";
+                } else {
+                    alert(errorMessage);
+                }
 
-                    “Please complete all required fields.”; 
+                return;
+            }
 
- 
+            if (formStatus) {
+                formStatus.textContent =
+                    "Your details look correct. Preparing your enquiry...";
+                formStatus.style.color = "#237a3b";
+            }
 
-                Return; 
+           
 
- 
+        });
 
-            } 
+    }
 
- 
 
- 
 
-            /* 7. VALIDATE THE EMAIL ADDRESS */ 
+    // ICE BAG PRICE ESTIMATOR //
 
- 
+    const productSelect = document.getElementById("product");
+    const quantityInput = document.getElementById("quantity");
+    const priceEstimate = document.getElementById("priceEstimate");
 
-            Const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    function calculatePrice() {
 
- 
+        if (!productSelect || !quantityInput || !priceEstimate) {
+            return;
+        }
 
-            If (!emailPattern.test(customerEmail)) { 
+        const selectedProduct = productSelect.value.toLowerCase();
+        const quantity = Number(quantityInput.value);
 
- 
+        let pricePerBag = 0;
 
-                formMessage.textContent = 
+        // Price per bag based on the existing
+        // Frozen Trust pricing information.
 
-                    “Please enter a valid email address.”; 
+        if (selectedProduct.includes("2kg")) {
+            pricePerBag = 10;
+        } else if (selectedProduct.includes("3kg")) {
+            pricePerBag = 15;
+        }
 
- 
+        if (
+            !Number.isFinite(quantity) ||
+            quantity <= 0 ||
+            !Number.isInteger(quantity)
+        ) {
+            priceEstimate.textContent =
+                "Enter a whole number of bags to estimate the price.";
+            return;
+        }
 
-                Return; 
+        if (pricePerBag === 0) {
+            priceEstimate.textContent =
+                "Select 2 kg or 3 kg ice to calculate an estimate.";
+            return;
+        }
 
- 
+        const totalPrice = pricePerBag * quantity;
 
-            } 
+        priceEstimate.textContent =
+            "Estimated total: R" + totalPrice.toFixed(2);
 
- 
+    }
 
- 
+    if (productSelect) {
+        productSelect.addEventListener("change", calculatePrice);
+    }
 
-            /* 8. PREPARE THE WHATSAPP MESSAGE */ 
+    if (quantityInput) {
+        quantityInput.addEventListener("input", calculatePrice);
+    }
 
- 
 
-            Const enquiryLabels = { 
 
-                “2kg”: “2 kg Ice Bags”, 
+    //  IMAGE ENLARGEMENT //
 
-                “3kg”: “3 kg Ice Bags”, 
+    const images = document.querySelectorAll(
+        ".product-image, .card img, .gallery img"
+    );
 
-                “freezer”: “Freezer Hire”, 
+    images.forEach(function (image) {
 
-                “delivery”: “Delivery”, 
+        image.style.cursor = "zoom-in";
 
-                “other”: “Other Enquiry” 
+        image.addEventListener("click", function () {
 
-            }; 
+            // Create the image overlay
+            const overlay = document.createElement("div");
 
- 
+            overlay.style.position = "fixed";
+            overlay.style.inset = "0";
+            overlay.style.background = "rgba(0, 0, 0, 0.85)";
+            overlay.style.display = "flex";
+            overlay.style.justifyContent = "center";
+            overlay.style.alignItems = "center";
+            overlay.style.padding = "20px";
+            overlay.style.zIndex = "9999";
+            overlay.style.cursor = "zoom-out";
 
-            Const enquiryLabel = 
+            // Create enlarged image
+            const enlargedImage = document.createElement("img");
 
-                enquiryLabels[selectedEnquiry] || selectedEnquiry; 
+            enlargedImage.src = image.src;
+            enlargedImage.alt = image.alt || "Enlarged Frozen Trust image";
 
- 
+            enlargedImage.style.maxWidth = "95%";
+            enlargedImage.style.maxHeight = "90vh";
+            enlargedImage.style.objectFit = "contain";
+            enlargedImage.style.borderRadius = "10px";
 
-            const message = [ 
+            // Add image to overlay
+            overlay.appendChild(enlargedImage);
+            document.body.appendChild(overlay);
 
-                “Hello Frozen Trust!”, 
+            // Close when the overlay is clicked
+            overlay.addEventListener("click", function () {
+                overlay.remove();
+            });
 
-                “”, 
+            // Close when Escape is pressed
+            function closeOnEscape(event) {
 
-                “I would like to make an enquiry.”, 
+                if (event.key === "Escape") {
+                    overlay.remove();
+                    document.removeEventListener(
+                        "keydown",
+                        closeOnEscape
+                    );
+                }
 
-                “”, 
+            }
 
-                “Name: “ + customerName, 
+            document.addEventListener("keydown", closeOnEscape);
 
-                “Email: “ + customerEmail, 
+        });
 
-                “Phone: “ + (customerPhone || “Not provided”), 
+    });
 
-                “Enquiry Type: “ + enquiryLabel, 
 
-                “Quantity: “ + (quantity || “Not specified”), 
+    //  CONTACT FORM VALIDATION //
 
-                “”, 
+    const contactForm = document.getElementById("contactForm");
 
-                “Message: “ + customerMessage 
+    if (contactForm) {
 
-            ].join(“\n”); 
+        contactForm.addEventListener("submit", function (event) {
 
- 
+            const nameField = contactForm.querySelector(
+                '[name="name"]'
+            );
 
- 
+            const emailField = contactForm.querySelector(
+                '[name="email"]'
+            );
 
-            /* 9. OPEN WHATSAPP */ 
+            const messageField = contactForm.querySelector(
+                '[name="message"]'
+            );
 
- 
+            const status = document.getElementById("contactStatus");
 
-            Const whatsappNumber = “27815552338”; 
+            const name = nameField ? nameField.value.trim() : "";
+            const email = emailField ? emailField.value.trim() : "";
+            const message = messageField
+                ? messageField.value.trim()
+                : "";
 
- 
+            let errorMessage = "";
 
-            Const whatsappURL = 
+            if (!name || !email || !message) {
+                errorMessage =
+                    "Please complete your name, email and message.";
+            }
 
-                https://wa.me/ + 
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                whatsappNumber + 
+            if (!errorMessage && !emailPattern.test(email)) {
+                errorMessage =
+                    "Please enter a valid email address.";
+            }
 
-                “?text=” + 
+            if (errorMessage) {
 
-                encodeURIComponent(message); 
+                event.preventDefault();
 
- 
+                if (status) {
+                    status.textContent = errorMessage;
+                    status.style.color = "#c62828";
+                } else {
+                    alert(errorMessage);
+                }
 
-            formMessage.textContent = 
+                return;
+            }
 
-                “Your enquiry is ready. WhatsApp will open so you can review and send it.”; 
+            if (status) {
+                status.textContent =
+                    "Your details look correct. Preparing your message...";
+                status.style.color = "#237a3b";
+            }
 
- 
+        });
 
-            Window.open(whatsappURL,“_blank”, “noopener,noreferrer”); 
+    }
 
- 
 
-        }); 
+    
+    // ACCESSIBLE IMAGE AND FORM SUPPORT //
 
- 
+    document.querySelectorAll("img").forEach(function (image) {
 
-    } 
+        // Report missing images in the browser console
+        image.addEventListener("error", function () {
+            console.error(
+                "Image failed to load: " + image.src
+            );
+        });
 
- 
+    });
 
-}); 
+});
