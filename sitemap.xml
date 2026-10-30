@@ -1,32 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"
-<urlset xmlns="http://sitemaps.org">
-<url>
-<loc>https://github.io</loc>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https:github.ioabout.html</loc>
-</url>
+    <url>
+        <loc>https://makaziwe974.github.io/ST10474301_FrozenTrust_WEDE5020_Part2/</loc>
+    </url>
 
-<url>
-<loc>https:github.ioproducts.html</loc>
-</url>
+    <url>
+        <loc>https://makaziwe974.github.io/ST10474301_FrozenTrust_WEDE5020_Part2/about.html</loc>
+    </url>
 
-<url>
-<loc>https:github.ioservices.html</loc>
-</url>
+    <url>
+        <loc>https://makaziwe974.github.io/ST10474301_FrozenTrust_WEDE5020_Part2/products.html</loc>
+    </url>
 
-<url>
-<loc>https:github.ioenquiry.html</loc>
-</url>
+    <url>
+        <loc>https://makaziwe974.github.io/ST10474301_FrozenTrust_WEDE5020_Part2/services.html</loc>
+    </url>
 
-<url>
-<loc>https:github.iocontact.html</loc>
-</url>
+    <url>
+        <loc>https://makaziwe974.github.io/ST10474301_FrozenTrust_WEDE5020_Part2/enquiry.html</loc>
+    </url>
+
+    <url>
+        <loc>https://makaziwe974.github.io/ST10474301_FrozenTrust_WEDE5020_Part2/contact.html</loc>
+    </url>
 
 </urlset>
-
-
-
-
-
